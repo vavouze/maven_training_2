@@ -8,7 +8,7 @@ public class SomeLernejoTests {
     public void ok(){}
 
     @TestMethod
-    public void ko() throws Exception
+    public void ko()
     {
         throw new java.lang.IllegalStateException();
     }
