@@ -10,10 +10,14 @@ import java.util.List;
 
 public class TestClassDescription {
 
-    Class<?> classInstance;
+    private final Class<?> classInstance;
     public TestClassDescription(Class<?> mystere)
     {
         this.classInstance = mystere;
+    }
+
+    public Class<?> getClassInstance() {
+        return classInstance;
     }
 
     public List<Method> listTestMethods()

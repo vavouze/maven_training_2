@@ -9,26 +9,20 @@ import java.util.List;
 public class TestClassDiscovererLernejoTests
 {
     @TestMethod
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) throws Exception {
         List<TestClassDescription> testClass =  new TestClassDiscoverer("fr.lernejo.tester").listTestClasses();
         boolean Tester = true;
         String[] classNames = {"fr.lernejo.tester.internal.TestClassDescriptionLernejoTests", "fr.lernejo.tester.SomeLernejoTests", "fr.lernejo.tester.internal.TestClassDiscovererLernejoTests"};
         for (TestClassDescription current:testClass)
         {
-            System.out.println(current.classInstance.getName());
-            if (!Arrays.asList(classNames).contains(current.classInstance.getName()))
+            if (!Arrays.asList(classNames).contains(current.getClassInstance().getName()))
             {
                 Tester = false;
             }
         }
-        if (testClass.size() == 3 && Tester)
+        if (testClass.size() != 3 || !Tester)
         {
-            System.out.println("Okay pour le test");
-        }
-        else
-        {
-            System.out.println("KO pour le test");
+            throw new java.lang.Exception();
         }
     }
 }

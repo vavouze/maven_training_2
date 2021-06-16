@@ -28,7 +28,7 @@ public class TestClassDiscoverer
         {
             TestClassDescription current = new TestClassDescription(type);
             List<Method> to_return = new ArrayList<Method>();
-            for (Method courant : current.classInstance.getDeclaredMethods())
+            for (Method courant : current.getClassInstance().getDeclaredMethods())
             {
                 if (Modifier.isPublic(courant.getModifiers()) && courant.getReturnType().equals(Void.TYPE) && courant.isAnnotationPresent(TestMethod.class))
                 {
@@ -39,7 +39,6 @@ public class TestClassDiscoverer
             {
                 descriptionList.add(current);
             }
-            //System.out.println(descriptionList);
         }
         return descriptionList;
     }
